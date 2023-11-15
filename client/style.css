@@ -1,0 +1,117 @@
+@import url("https://fonts.googleapis.com/css2?family=Abel&family=Lora&family=Noto+Serif&family=Noto+Serif+Tangut&family=Nova+Mono&family=Qwigley&family=Raleway&family=Roboto&family=Ubuntu+Mono&display=swap");
+
+body {
+  margin: 0;
+
+  font-family: "Noto Serif", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
+    "Helvetica Neue", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  color: #00b7ff;
+}
+
+.file-name {
+  position: absolute;
+  bottom: -35px;
+  left: 10px;
+  font-size: 0.85rem;
+  color: #555;
+}
+
+.custom-file {
+  content: "Select some files";
+  display: inline-block;
+  background: linear-gradient(top, #f9f9f9, #e3e3e3);
+  border: 1px solid #999;
+  border-radius: 3px;
+  padding: 6px 64px;
+  outline: none;
+  white-space: nowrap;
+  -webkit-user-select: none;
+  cursor: pointer;
+  text-shadow: 1px 1px #fff;
+  font-weight: 700;
+  font-size: 1rem;
+}
+.custom-file:hover::before {
+  border-color: black;
+}
+.custom-file:active::before {
+  background: -webkit-linear-gradient(top, #e3e3e3, #f9f9f9);
+}
+
+.images-display {
+  padding: 10px;
+}
+
+.video-uploading-animation {
+  color: #1500ff;
+  padding-top: 20px;
+}
+
+.text-countdown {
+  color: #ff002f;
+}
+
+.processed-image {
+  max-height: 298px;
+  max-width: 298px;
+}
+
+.spinner-video {
+  border: 4px solid rgba(0, 0, 0, 0.3);
+  border-top: 4px solid #000000;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  animation: spin 1s linear infinite;
+}
+
+.spinner-video-uploading {
+  border: 4px solid rgba(0, 0, 0, 0.3);
+  border-top: 4px solid #000000;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.video-uploading {
+  padding-right: 20px;
+}
+
+.video-in-process {
+  color: #1500ff;
+  padding-right: 20px;
+}
+
+.multiplication-sign {
+  color: green;
+  font-size: 20px;
+}
+
+.video-display-size {
+  max-width: 1000px;
+}
+
+.video-size {
+  padding-top: 5px;
+}
+
+.video-name-flag {
+  color: #1500ff;
+  padding-left: 5px;
+}

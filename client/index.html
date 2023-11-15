@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Resize Video</title>
+    <link rel="icon" href="./logo.ico" type="image/x-icon" />
+    <!-- bootstrap css -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <!-- my styles css -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <nav class="d-flex justify-content-center bg-success text-white p-2">
+      <h1>RESIZE VIDEO</h1>
+    </nav>
+    <br />
+    <!-- container: video -->
+    <div class="container">
+      <div>
+        <!-- display user id: uuid -->
+        <div>User ID: <span id="user-uuid"></span></div>
+        <hr />
+        <div class="p-1">
+          <!-- upload video form -->
+          <form
+            id="uploadForm_single_video"
+            action="/"
+            method="POST"
+            enctype="multipart/form-data"
+          >
+            <br />
+            <div>
+              <!-- choose a video -->
+              <input
+                type="file"
+                id="fileInput-video"
+                name="video"
+                accept="video/*"
+                class="custom-file"
+                required
+              />
+            </div>
+
+            <div class="video-size">
+              <!-- display uploaded video size -->
+              <div id="video-size"></div>
+              <!-- display uploaded video dimension -->
+              <div id="video-dimensions"></div>
+              <video id="videoElement" style="display: none" controls></video>
+            </div>
+            <br />
+            <!-- input video size: x*y -->
+            <div>
+              <!-- input x pixel -->
+              <input
+                id="x-pixel"
+                type="number"
+                name="x-pixel"
+                placeholder="x-pixel"
+                required
+              />
+              <span class="multiplication-sign">&times;</span>
+              <!-- input y pixel -->
+              <input
+                id="y-pixel"
+                type="number"
+                name="y-pixel"
+                placeholder="y-pixel"
+                required
+              />
+            </div>
+            <!-- display uploading video spinner -->
+            <div class="video-uploading-animation d-flex pt-3">
+              <div id="video-uploading" class="video-uploading">
+                Uploading video to S3:
+              </div>
+              <!-- uploading animation: spinner -->
+              <div
+                id="spinner-video-uploading"
+                class="spinner-video-uploading"
+              ></div>
+            </div>
+
+            <!-- upload video button -->
+            <div class="py-3">
+              <button
+                id="click-video"
+                type="submit"
+                class="btn btn-success"
+                onclick="deleteUserInfoFromDB()"
+              >
+                Upload Video
+              </button>
+            </div>
+          </form>
+        </div>
+        <!-- display uploading video name and uploading status -->
+        <div class="video-name-flag">
+          <div id="upload-complete-flag"></div>
+          <div id="video-name"></div>
+        </div>
+        <hr />
+
+        <!-- download processed video -->
+        <!-- download link -->
+        <div class="py-2">
+          <a id="download-link" class="btn btn-success">Download Video</a>
+        </div>
+
+        <!-- display processed video -->
+        <div class="py-2">The processed video:</div>
+        <div id="video-processed-flag"></div>
+        <video id="video-player" class="video-display-size" controls></video>
+      </div>
+    </div>
+    <!-- end of container -->
+
+    <!-- ----------------------------------------------------------------------------------------- -->
+    <!-- bootstrap js -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- AWS SDK v2: javaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aws-sdk/2.1156.0/aws-sdk.min.js"></script>
+    <!-- uuid js -->
+    <script src="https://cdn.jsdelivr.net/npm/uuid@8.3.2/dist/umd/uuidv4.min.js"></script>
+    <!-- aws config js file -->
+    <script src="config.js"></script>
+    <!-- main function js file -->
+    <script src="index.js"></script>
+  </body>
+</html>
